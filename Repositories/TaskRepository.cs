@@ -25,12 +25,10 @@ namespace ToDoApp.Repositories
             await _taskCollection.InsertOneAsync(newTask);
         }
 
-        public async Task<List<Models.Task>> GetTasks(int page)
+        public async Task<List<Models.Task>> GetTasks()
         {
             return await _taskCollection
                 .Find(_ => true)
-                .Skip((page - 1) * 5)
-                .Limit(5)
                 .ToListAsync();
         }
 

@@ -15,10 +15,10 @@ namespace ToDoApp.Controllers
             _taskRepository = taskRepository;
         }
 
-        [HttpGet("All/{page}")]
-        public async Task<IActionResult> GetData(int page)
+        [HttpGet("All")]
+        public async Task<IActionResult> GetData()
         {
-            var listData = await _taskRepository.GetTasks(page);
+            var listData = await _taskRepository.GetTasks();
             return Ok(listData);
         }
 
